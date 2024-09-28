@@ -3,6 +3,9 @@ const routerApi = require('./routes');
 
 const app = express();
 
+// support json
+app.use(express.json());
+
 // routes
 routerApi(app);
 
