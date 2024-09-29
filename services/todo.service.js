@@ -28,7 +28,6 @@ class TodoService {
     async delete(id) {
         const todo = await this.findOne(id);
         const result = await todo.destroy();
-        console.log(result);
         return { 
             id,
             result,
