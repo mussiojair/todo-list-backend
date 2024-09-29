@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
         const items = await service.findOne(id);
         res.json(items);
     } catch(error) {
-        res.status(500).json({message: "Error retrieving one item"});
+        res.status(404).json({message: error.message});
     }
 });
 
@@ -34,7 +34,7 @@ router.get('/:id', async (req, res) => {
  */
 router.post('/', async (req, res) => {
     try {
-        const { data } = req.body;
+        const data = req.body;
         const items = await service.create(data);
         res.json(items);
     } catch(error) {
@@ -48,8 +48,9 @@ router.post('/', async (req, res) => {
 router.patch('/:id', async (req, res) => {
 
     try {
-        const { data } = req.body;
-        const updatedData = await service.update(data);
+        const { id } = req.params;
+        const data = req.body;
+        const updatedData = await service.update(id, data);
         res.status(201).json(updatedData);
     } catch(error) {
         res.status(500).json({message: "PATCH operation failed. Update couldn't be done."});
