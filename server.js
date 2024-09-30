@@ -1,5 +1,6 @@
 const express = require('express');
 const routerApi = require('./routes');
+const { config } = require('./config/config');
 const { boomErrorHandler, errorHandler } = require('./middlewares/error.handler');
 
 const app = express();
@@ -14,6 +15,6 @@ routerApi(app);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 
-app.listen(3000, () => {
-    console.log('Node app is running in port 3000')
+app.listen(config.serverPort, () => {
+    console.log(`Node app is running in port ${config.serverPort}`);
 });
