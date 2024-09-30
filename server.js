@@ -2,8 +2,12 @@ const express = require('express');
 const routerApi = require('./routes');
 const { config } = require('./config/config');
 const { boomErrorHandler, errorHandler } = require('./middlewares/error.handler');
+const { checkApi } = require('./middlewares/api.handler');
 
 const app = express();
+
+// validates apikey first
+app.use(checkApi);
 
 // support json
 app.use(express.json());
