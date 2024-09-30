@@ -15,7 +15,6 @@ router.get('/',
             const items = await service.find();
             res.json(items);
         } catch(error) {
-            // res.status(500).json({message: "Error retrieving all items"});
             next(error);
         }
     }
@@ -48,7 +47,7 @@ router.post('/',
             const items = await service.create(data);
             res.json(items);
         } catch(error) {
-            res.status(500).json({message: "Error creating an item"});
+            next(error);
         }
     }
 );
@@ -66,7 +65,6 @@ router.patch('/:id',
             const updatedData = await service.update(id, data);
             res.status(201).json(updatedData);
         } catch(error) {
-            // res.status(500).json({message: "PATCH operation failed. Update couldn't be done."});
             next(error);
         }
     }
@@ -83,7 +81,6 @@ router.delete('/:id',
             const result = await service.delete(id);
             res.json(result);
         } catch(error) {
-            // res.status(500).json({ message: "DELETE operation failed. Delete on user {id} couldn't be done."});
             next(error);
         }
     }
