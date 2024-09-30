@@ -1,7 +1,7 @@
 'use strict';
 
 const { DataTypes } = require('sequelize');
-const { TODO_TABLE } = require('../../models/todo.model');
+const { TODO_TABLE } = require('../models/todo.model');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
