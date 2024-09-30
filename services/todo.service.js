@@ -1,3 +1,4 @@
+const boom = require('@hapi/boom');
 const { models } = require('../libs/sequelize');
 class TodoService {
     
@@ -9,7 +10,7 @@ class TodoService {
     async findOne(id) {
         const todo = await models.Todo.findByPk(id);
         if (!todo) {
-            throw new Error('Item not found');
+            throw boom.notFound('Item not found');
         }
         return todo;
     }
