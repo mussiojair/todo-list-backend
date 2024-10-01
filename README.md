@@ -39,3 +39,15 @@ npm install
 ```
 npm run dev
 ```
+
+## Debug RESTful API
+
+### Install Insomnia
+
+Download: https://insomnia.rest/download
+
+### Load collection file
+
+Go to insomnia directory in repository root and import Insomnia_2024-10-01.json file into Insomnia application.
+
+
