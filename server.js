@@ -6,6 +6,16 @@ const { checkApi } = require('./middlewares/api.handler');
 
 const app = express();
 
+// cors configuration
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) // Use this after the variable declaration
+
 // validates apikey first
 app.use(checkApi);
 
