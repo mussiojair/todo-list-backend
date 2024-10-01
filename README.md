@@ -26,13 +26,11 @@ git clone https://github.com/mussiojair/todo-list-backend.git
 npm install
 ```
 
-### 3. Configuración del proyecto
+### 3. Create a config file and fill it up with proper values.
 
-3. Create a config file and fill it up with proper values.
-
-   ```bash
-   cp .env.example .env
-   ```
+```
+cp .env.example .env
+```
 
 ### 4. Run application (dev mode)
 
